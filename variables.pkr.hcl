@@ -11,3 +11,15 @@ variable "aws_secret_key" {
   default     = null
   sensitive   = true
 }
+
+variable "aws_vpc_id" {
+  description = "AWS VPC ID"
+  type        = string
+  default     = null
+}
+
+variable "aws_subnet_id" {
+  description = "AWS Subnet ID"
+  type        = string
+  default     = null
+}

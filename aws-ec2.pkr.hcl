@@ -13,6 +13,8 @@ source "amazon-ebs" "ubuntu" {
   region        = "us-east-1"
   access_key    = var.aws_access_key
   secret_key    = var.aws_secret_key
+  vpc_id        = var.aws_vpc_id
+  subnet_id     = var.aws_subnet_id
   source_ami_filter {
     filters = {
       name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
@@ -22,6 +24,8 @@ source "amazon-ebs" "ubuntu" {
     most_recent = true
     owners      = ["099720109477"]
   }
+  skip_create_ami = true # helpful during testing, we'll remove it later
+  associate_public_ip_address = true
   ssh_username = "ubuntu"
 }
 
